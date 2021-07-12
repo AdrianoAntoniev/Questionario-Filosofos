@@ -11,7 +11,7 @@ import UIKit
 
 protocol Coordinator {
     var childCoordinators: [Coordinator] { get set }
-    var navigationController: UINavigationController { get set }
+    var navigationController: UINavigationController { get }
     
     func start()
 }
@@ -27,9 +27,9 @@ class MainCoordinator: Coordinator {
         childCoordinators = []
     }
     
-    func start() {
-        // FIXME: I must to instantiate my view controller here
-        print("Kevin Bacon")
+    func start() {        
+        let viewController = StartQuizViewController(coordinator: self)        
+        self.navigationController.pushViewController(viewController, animated: true)        
     }
 }
 
