@@ -7,13 +7,11 @@
 
 import UIKit
 
-class StartQuizViewController: UIViewController {
-    private weak var coordinator: MainCoordinator?
+class StartQuizViewController: UIViewController {    
     private let startQuizView: StartQuizView!
     
-    init(coordinator: MainCoordinator) {
-        self.startQuizView = StartQuizView()
-        self.coordinator = coordinator
+    init(viewModel: StartQuizViewModel) {
+        self.startQuizView = StartQuizView(viewModel: viewModel)
         
         super.init(nibName: nil, bundle: nil)
     }

@@ -8,13 +8,16 @@
 import UIKit
 
 class StartQuizView: UIView {
+    private let viewModel: StartQuizViewModel
+    
     private lazy var image: UIImageView = buildImage()
     private lazy var label: UILabel = buildLabel()
     private lazy var button: UIButton = buildButton()
     
-    init() {
+    init(viewModel: StartQuizViewModel) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
-        
+                
         self.backgroundColor = .orange        
         setup()
     }
@@ -42,10 +45,11 @@ class StartQuizView: UIView {
                 image.centerXAnchor.constraint(equalTo: layoutMarginsGuide.centerXAnchor),
                 
                 label.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20),
-                label.heightAnchor.constraint(equalToConstant: 50),
+                label.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 20),
+                label.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -20),
                 label.centerXAnchor.constraint(equalTo: layoutMarginsGuide.centerXAnchor),
                 
-                button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
+                button.heightAnchor.constraint(equalToConstant: 50),
                 button.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -20),
                 button.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 20),
                 button.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -20)
@@ -60,7 +64,7 @@ extension StartQuizView {
     private func buildImage() -> UIImageView {
         let image = UIImageView(frame: .zero)
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "mario.png")
+        image.image = UIImage(named: viewModel.imageName)
         
         return image
     }
@@ -68,7 +72,9 @@ extension StartQuizView {
     private func buildLabel() -> UILabel {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Mario Bros"
+        label.text = viewModel.labelTitle
+        label.font = .boldSystemFont(ofSize: 20)
+        label.numberOfLines = 0
         label.textAlignment = .center
         
         return label
@@ -77,11 +83,17 @@ extension StartQuizView {
     private func buildButton() -> UIButton {
         let button = UIButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Opa!", for: .normal)
-        button.setTitle("Opa denovo", for: .highlighted)
+        button.setTitle(viewModel.normalStateButtonTitle, for: .normal)
+        button.setTitle(viewModel.highlightStateButtonTitle, for: .highlighted)
         button.backgroundColor = .blue
-        button.tintColor = .red
+        button.layer.cornerRadius = 12
+        
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         return button
+    }
+    
+    @objc func buttonTapped() {
+        viewModel.buttonTapped()
     }
 }
