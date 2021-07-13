@@ -19,6 +19,7 @@ protocol Coordinator {
 // MARK: - Class
 
 class MainCoordinator: Coordinator {
+    var question = 0
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
@@ -28,9 +29,50 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {        
-        let viewController = StartQuizViewController(coordinator: self)        
-        self.navigationController.pushViewController(viewController, animated: true)        
+        self.startWelcomeScreen()
+    }
+    
+    func startWelcomeScreen() {
+        let coordinator = StartQuizCoordinator(
+            navigationController: navigationController,
+            delegate: self
+        )
+        coordinator.start()
+        self.childCoordinators.append(coordinator)
+    }
+    
+    func startQuiz(question: Int) {
+        let coordinator = QuizCoordinator(
+            navigationController: navigationController,
+            question: question,
+            delegate: self
+        )
+        coordinator.start()
+        self.childCoordinators.append(coordinator)
+    }
+    
+    func startResults() {
+        print("Calculando os resultados")
     }
 }
 
+// MARK: - StartQuizViewModelCoordinatorDelegate
 
+extension MainCoordinator: StartQuizCoordinatorDelegate {
+    func buttonTapped() {
+        self.startQuiz(question: question)
+    }    
+}
+
+// MARK: - QuizViewModelCoordinatorDelegate
+
+extension MainCoordinator: QuizCoordinatorDelegate {
+    func calculateResults() {
+        self.startResults()
+    }
+    
+    func nextQuestionTapped() {
+        question += 1
+        self.startQuiz(question: question)
+    }
+}
