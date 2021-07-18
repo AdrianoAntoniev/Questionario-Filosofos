@@ -8,42 +8,31 @@
 import UIKit
 
 protocol QuizCoordinatorDelegate: AnyObject {
-    func nextQuestionTapped()
-    func calculateResults()
+    func nextQuestionTapped(shouldFinish: Bool)
 }
 
 class QuizCoordinator: Coordinator {
     weak var delegate: QuizCoordinatorDelegate?
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
-    let question: Int
     
     init(
         navigationController: UINavigationController,
-        question: Int,
         delegate: QuizCoordinatorDelegate
         ) {
         self.navigationController = navigationController
-        self.delegate = delegate
-        self.question = question
+        self.delegate = delegate        
     }
     
     func start() {
-        let viewData = QuizViewData(
-                                    normalStateButtonTitle: "Confirmar questão \(question + 1)",
-                                    highlightStateButtonTitle: "Aguarde..."
-                                    )
-        
-        let viewModel = QuizViewModel(viewData: viewData,
-                                           delegate: self,
-                                           question: question)
+        let viewModel = QuizViewModel(delegate: self)
         let viewController = QuizViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
 
 extension QuizCoordinator: QuizViewModelCoordinatorDelegate {
-    func buttonTapped(shouldFinish: Bool) {
-        shouldFinish ? delegate?.calculateResults() : delegate?.nextQuestionTapped()        
-    }
+    func optionTapped(shouldFinish: Bool) {
+        delegate?.nextQuestionTapped(shouldFinish: shouldFinish)
+    }    
 }

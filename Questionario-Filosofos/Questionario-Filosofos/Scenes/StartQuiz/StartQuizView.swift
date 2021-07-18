@@ -87,6 +87,7 @@ extension StartQuizView {
         button.setTitle(viewModel.highlightStateButtonTitle, for: .highlighted)
         button.backgroundColor = .blue
         button.layer.cornerRadius = 12
+        button.clipsToBounds = true
         
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         

@@ -11,14 +11,12 @@ class QuizView: UIView {
     private let viewModel: QuizViewModel
         
     private lazy var stackView: UIStackView = buildStackView()
-    private lazy var questionLabel: UILabel = buildLabel(withTitle: viewModel.questionTitle,
+    private lazy var questionLabel: UILabel = buildLabel(withTitle: viewModel.question.title,
                                                  fontSize: 30)
-    private lazy var choiceOne = buildLabel(withTitle: viewModel.choiceOne, alignment: .left)
-    private lazy var choiceTwo = buildLabel(withTitle: viewModel.choiceTwo, alignment: .left)
-    private lazy var choiceThree = buildLabel(withTitle: viewModel.choiceThree, alignment: .left)
-    private lazy var choiceFour = buildLabel(withTitle: viewModel.choiceFour, alignment: .left)
-    
-    private lazy var button: UIButton = buildButton()
+    private lazy var choiceOne = buildLabelOne(withTitle: viewModel.question.one.title, alignment: .left)
+    private lazy var choiceTwo = buildLabelTwo(withTitle: viewModel.question.two.title, alignment: .left)
+    private lazy var choiceThree = buildLabelThree(withTitle: viewModel.question.three.title, alignment: .left)
+    private lazy var choiceFour = buildLabelFour(withTitle: viewModel.question.four.title, alignment: .left)
     
     init(viewModel: QuizViewModel) {
         self.viewModel = viewModel
@@ -40,7 +38,6 @@ class QuizView: UIView {
     private func addItems() {
         self.addSubview(questionLabel)
         self.addSubview(stackView)
-        self.addSubview(button)
     }
     
     private func configureConstraints() {
@@ -53,13 +50,8 @@ class QuizView: UIView {
                 stackView.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 20),
                 stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 20),
                 stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -20),
-                stackView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -20),
-                
-                button.heightAnchor.constraint(equalToConstant: 50),
-                button.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -20),
-                button.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 20),
-                button.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -20),
-                
+                stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -20),
+                                
                 choiceOne.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 10),
                 choiceOne.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10),
                 choiceOne.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10),
@@ -93,9 +85,34 @@ extension QuizView {
         return stackView
     }
     
+    private func buildLabelOne(withTitle title: String, alignment: NSTextAlignment) -> UILabel {
+        let label = buildLabel(withTitle: title, alignment: alignment, andTag: 0)
+        
+        return label
+    }
+    
+    private func buildLabelTwo(withTitle title: String, alignment: NSTextAlignment) -> UILabel {
+        let label = buildLabel(withTitle: title, alignment: alignment, andTag: 1)
+        
+        return label
+    }
+    
+    private func buildLabelThree(withTitle title: String, alignment: NSTextAlignment) -> UILabel {
+        let label = buildLabel(withTitle: title, alignment: alignment, andTag: 2)
+        
+        return label
+    }
+    
+    private func buildLabelFour(withTitle title: String, alignment: NSTextAlignment) -> UILabel {
+        let label = buildLabel(withTitle: title, alignment: alignment, andTag: 3)
+        
+        return label
+    }
+    
     private func buildLabel(withTitle title: String,
                             fontSize: CGFloat = 20,
-                            alignment: NSTextAlignment = .center) -> UILabel {
+                            alignment: NSTextAlignment = .center,
+                            andTag tag: Int? = nil) -> UILabel {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = title
@@ -103,23 +120,20 @@ extension QuizView {
         label.numberOfLines = 0
         label.textAlignment = alignment
         
+        if let safeTag = tag {
+            label.tag = safeTag
+        }
+        
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(labelTap)
+        
         return label
     }
     
-    private func buildButton() -> UIButton {
-        let button = UIButton(frame: .zero)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(viewModel.normalStateButtonTitle, for: .normal)
-        button.setTitle(viewModel.highlightStateButtonTitle, for: .highlighted)
-        button.backgroundColor = .blue
-        button.layer.cornerRadius = 12
+    @objc func labelTapped(_ sender: UITapGestureRecognizer) {
+        guard let tag = sender.view?.tag else { return }
         
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        
-        return button
-    }
-    
-    @objc func buttonTapped() {
-        viewModel.buttonTapped()
+        viewModel.optionTapped(tag)
     }
 }

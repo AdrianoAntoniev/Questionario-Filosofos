@@ -1,17 +1,17 @@
 //
-//  QuizViewController.swift
+//  ResultViewController.swift
 //  Questionario-Filosofos
 //
-//  Created by Adriano Rodrigues Vieira on 12/07/21.
+//  Created by Adriano Rodrigues Vieira on 15/07/21.
 //
 
 import UIKit
 
-class QuizViewController: UIViewController {
-    private let quizView: QuizView!
+class ResultViewController: UIViewController {
+    private let resultView: ResultView
     
-    init(viewModel: QuizViewModel) {
-        self.quizView = QuizView(viewModel: viewModel)
+    init(viewModel: ResultViewModel) {
+        self.resultView = ResultView(viewModel: viewModel)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -20,12 +20,12 @@ class QuizViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadView() {
-        view = quizView
-    }
-        
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func loadView() {
+        view = resultView
     }
     
     override func viewWillAppear(_ animated: Bool) {

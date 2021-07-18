@@ -19,7 +19,6 @@ protocol Coordinator {
 // MARK: - Class
 
 class MainCoordinator: Coordinator {
-    var question = 0
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
@@ -33,6 +32,7 @@ class MainCoordinator: Coordinator {
     }
     
     func startWelcomeScreen() {
+        Questions.resetAnswers()
         let coordinator = StartQuizCoordinator(
             navigationController: navigationController,
             delegate: self
@@ -41,10 +41,9 @@ class MainCoordinator: Coordinator {
         self.childCoordinators.append(coordinator)
     }
     
-    func startQuiz(question: Int) {
+    func startQuiz() {
         let coordinator = QuizCoordinator(
             navigationController: navigationController,
-            question: question,
             delegate: self
         )
         coordinator.start()
@@ -52,7 +51,12 @@ class MainCoordinator: Coordinator {
     }
     
     func startResults() {
-        print("Calculando os resultados")
+        let coordinator = ResultCoordinator(
+            navigationController: navigationController,
+            delegate: self
+        )
+        coordinator.start()
+        self.childCoordinators.append(coordinator)
     }
 }
 
@@ -60,19 +64,29 @@ class MainCoordinator: Coordinator {
 
 extension MainCoordinator: StartQuizCoordinatorDelegate {
     func buttonTapped() {
-        self.startQuiz(question: question)
+        self.startQuiz()
     }    
 }
 
 // MARK: - QuizViewModelCoordinatorDelegate
 
 extension MainCoordinator: QuizCoordinatorDelegate {
-    func calculateResults() {
-        self.startResults()
+    func nextQuestionTapped(shouldFinish: Bool) {
+        if shouldFinish {
+            self.startResults()
+        } else {
+            self.startQuiz()
+        }
+    }
+}
+// MARK: - ResultCoordinatorDelegate
+
+extension MainCoordinator: ResultCoordinatorDelegate {
+    func newGame() {
+        self.startWelcomeScreen()
     }
     
-    func nextQuestionTapped() {
-        question += 1
-        self.startQuiz(question: question)
+    func finish() {
+        print("Fiiimmmm")
     }
 }
