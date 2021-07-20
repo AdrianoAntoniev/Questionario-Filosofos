@@ -8,8 +8,7 @@
 import UIKit
 
 protocol ResultCoordinatorDelegate: AnyObject {
-    func newGame()
-    func finish()
+    func newGame()    
 }
 
 class ResultCoordinator: Coordinator {
@@ -38,10 +37,6 @@ class ResultCoordinator: Coordinator {
 // MARK: - Extension for ResultViewModelCoordinatorDelegate
 
 extension ResultCoordinator: ResultViewModelCoordinatorDelegate {
-    func finishGame() {
-        delegate?.finish()
-    }
-    
     func newGame() {
         delegate?.newGame()
     }    

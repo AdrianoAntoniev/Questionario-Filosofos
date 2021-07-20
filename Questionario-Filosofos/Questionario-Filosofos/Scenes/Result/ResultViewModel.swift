@@ -8,8 +8,7 @@
 import Foundation
 
 protocol ResultViewModelCoordinatorDelegate: AnyObject {
-    func newGame()
-    func finishGame()
+    func newGame()    
 }
 
 class ResultViewModel {
@@ -42,10 +41,6 @@ class ResultViewModel {
     
     func newGameTapped() {
         delegate?.newGame()
-    }
-    
-    func exitTapped() {
-        delegate?.finishGame()
     }
 }
 

@@ -15,7 +15,6 @@ class ResultView: UIView {
     private lazy var resultTitleLabel = buildLabel(withTitle: viewModel.resultLabelTitle, andColor: .green)
     private lazy var buttonStack = buildStack()
     private lazy var newGameButton = buildNewGameButton()
-    private lazy var exitButton = buildExitButton()
     
     init(viewModel: ResultViewModel) {
         self.viewModel = viewModel
@@ -80,13 +79,6 @@ class ResultView: UIView {
         return button
     }
     
-    func buildExitButton() -> UIButton {
-        let button = buildButton(withTitle: viewModel.exitGameButtonTitle)
-        button.addTarget(self, action: #selector(exitTapped), for: .touchUpInside)
-        
-        return button
-    }
-    
     private func buildButton(withTitle title: String) -> UIButton {
         let button = UIButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +93,7 @@ class ResultView: UIView {
     }
     
     private func buildStack() -> UIStackView {
-        let stack = UIStackView(arrangedSubviews: [newGameButton, exitButton])
+        let stack = UIStackView(arrangedSubviews: [newGameButton])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.alignment = .fill
         stack.axis = .horizontal
@@ -113,9 +105,5 @@ class ResultView: UIView {
     
     @objc private func newGameTapped() {
         viewModel.newGameTapped()
-    }
-    
-    @objc private func exitTapped() {
-        viewModel.exitTapped()
-    }
+    }        
 }

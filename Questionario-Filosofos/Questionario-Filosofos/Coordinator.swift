@@ -31,8 +31,7 @@ class MainCoordinator: Coordinator {
         self.startWelcomeScreen()
     }
     
-    func startWelcomeScreen() {
-        Questions.resetAnswers()
+    func startWelcomeScreen() {        
         let coordinator = StartQuizCoordinator(
             navigationController: navigationController,
             delegate: self
@@ -42,6 +41,7 @@ class MainCoordinator: Coordinator {
     }
     
     func startQuiz() {
+        Questions.resetAnswers()
         let coordinator = QuizCoordinator(
             navigationController: navigationController,
             delegate: self
@@ -83,10 +83,6 @@ extension MainCoordinator: QuizCoordinatorDelegate {
 
 extension MainCoordinator: ResultCoordinatorDelegate {
     func newGame() {
-        self.startWelcomeScreen()
-    }
-    
-    func finish() {
-        print("Fiiimmmm")
-    }
+        self.startQuiz()
+    }        
 }
