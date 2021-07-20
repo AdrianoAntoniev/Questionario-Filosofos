@@ -26,7 +26,10 @@ class ResultCoordinator: Coordinator {
     }
     
     func start() {
-        let viewModel = ResultViewModel(delegate: self)
+        let viewModel = ResultViewModel(
+            viewData: .init(),
+            delegate: self
+        )
         let viewController = ResultViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }        

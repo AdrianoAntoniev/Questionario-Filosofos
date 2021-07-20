@@ -13,7 +13,7 @@ class ResultViewController: UIViewController {
     init(viewModel: ResultViewModel) {
         self.resultView = ResultView(viewModel: viewModel)
         
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nil, bundle: nil)                
     }
     
     required init?(coder: NSCoder) {

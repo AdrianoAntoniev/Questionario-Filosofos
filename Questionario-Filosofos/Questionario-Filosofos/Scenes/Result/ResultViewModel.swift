@@ -14,11 +14,30 @@ protocol ResultViewModelCoordinatorDelegate: AnyObject {
 
 class ResultViewModel {
     private weak var delegate: ResultViewModelCoordinatorDelegate?
+    private var viewData: ResultViewData
     
     init(
-        delegate: ResultViewModelCoordinatorDelegate
+        viewData: ResultViewData,
+        delegate: ResultViewModelCoordinatorDelegate        
     ) {
         self.delegate = delegate
+        self.viewData = viewData
+    }
+    
+    var newGameButtonTitle: String {
+        viewData.newGameButtonTitle
+    }
+    
+    var exitGameButtonTitle: String {
+        viewData.exitGameButtonTitle
+    }
+    
+    var result: String {
+        viewData.result
+    }
+    
+    var resultLabelTitle: String {
+        viewData.resultLabelTitle
     }
     
     func newGameTapped() {

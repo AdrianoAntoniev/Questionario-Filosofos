@@ -12,7 +12,21 @@ import Foundation
 struct Questions {
     fileprivate static var answers: [String] = []
     fileprivate static var currentQuestionIndex: Int = 0
+    
     static var hasMoreQuestions: Bool = true
+    static var result: String {
+        let factor = 100 / answers.count
+        let grouped = answers.reduce(into: [:]) { result, character in
+            result[character, default: 0] += 1
+        }.sorted { $0.1 > $1.1 }
+                
+        var resultText = ""
+        grouped.forEach { k, v in
+            resultText += "\(k) = \(v * factor)% \n"
+        }
+        
+        return "\(resultText.prefix(resultText.count - 2))"
+    }
     
     static func resetAnswers() {
         answers = []
@@ -32,32 +46,32 @@ struct Questions {
     }
     
     private static let values: [Question] = [
-        Question(title: "Questao 1",
+        Question(title: "Como você se define?",
                  answers: [
-                    Answer(title: "Questao 1.1", profile: .four),
-                    Answer(title: "Questao 2.1", profile: .one),
-                    Answer(title: "Questao 3.1", profile: .two),
-                    Answer(title: "Questao 4.1", profile: .three)
-                 ]
+                    Answer(title: "Alguém que é capaz de qualquer coisa para conquistar seus objetivos", profile: .four),
+                    Answer(title: "Alguém que não se importa de não ser o centro das atenções", profile: .one),
+                    Answer(title: "Alguém que gosta de ajudar os outros", profile: .two),
+                    Answer(title: "Alguém que possui muita bondade", profile: .three)
+                 ].shuffled()
                          ),
-        Question(title: "Questao 2",
+        Question(title: "Qual sua principal característica?",
                  answers: [
-                    Answer(title: "Questao 1.2", profile: .four),
-                    Answer(title: "Questao 2.2", profile: .one),
-                    Answer(title: "Questao 3.2", profile: .two),
-                    Answer(title: "Questao 4.2", profile: .three)
-                 ]
+                    Answer(title: "Persistência", profile: .four),
+                    Answer(title: "Coragem", profile: .one),
+                    Answer(title: "Companheirismo", profile: .two),
+                    Answer(title: "Fé", profile: .three)
+                 ].shuffled()
                  
         ),
-        Question(title: "Questao 3",
+        Question(title: "Qual frase te define?",
                  answers: [
-                    Answer(title: "Questao 1.3", profile: .four),
-                    Answer(title: "Questao 2.3", profile: .one),
-                    Answer(title: "Questao 3.3", profile: .two),
-                    Answer(title: "Questao 4.3", profile: .three)
-                 ]                 
+                    Answer(title: "'Preciso vencer a qualquer custo!'", profile: .four),
+                    Answer(title: "'Qual é o próximo desafio?'", profile: .one),
+                    Answer(title: "'No que posso ajudar?'", profile: .two),
+                    Answer(title: "'Pareço frágil, mas sou muito forte!!'", profile: .three)
+                 ].shuffled()
         )
-    ]
+    ].shuffled()
 }
 
 // MARK: - Question
@@ -66,21 +80,10 @@ struct Question {
     let title: String
     let answers: [Answer]    
     
-    var one: Answer {
-        answers[0]
-    }
-    
-    var two: Answer {
-        answers[1]
-    }
-    
-    var three: Answer {
-        answers[2]
-    }
-    
-    var four: Answer {
-        answers[3]
-    }    
+    var one: Answer { answers[0] }
+    var two: Answer { answers[1] }
+    var three: Answer { answers[2] }
+    var four: Answer { answers[3] }
 }
 
 // MARK: - Answer

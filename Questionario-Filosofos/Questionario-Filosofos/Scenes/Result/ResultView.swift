@@ -9,12 +9,10 @@ import UIKit
 
 // MARK: - class
 
-class ResultView: UIView {
-    
-    // MARK: - enum
-    
+class ResultView: UIView {    
     private let viewModel: ResultViewModel
-    private lazy var label = buildLabel()
+    private lazy var resultLabel = buildLabel(withTitle: viewModel.result, andColor: .brown)
+    private lazy var resultTitleLabel = buildLabel(withTitle: viewModel.resultLabelTitle, andColor: .green)
     private lazy var buttonStack = buildStack()
     private lazy var newGameButton = buildNewGameButton()
     private lazy var exitButton = buildExitButton()
@@ -38,45 +36,52 @@ class ResultView: UIView {
     }
     
     private func addItems() {
-        self.addSubview(label)
+        self.addSubview(resultTitleLabel)
+        self.addSubview(resultLabel)
         self.addSubview(buttonStack)
     }
     
     private func configureConstraints() {
         NSLayoutConstraint.activate(
             [
-                label.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 30),
-                label.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -30),
-                label.heightAnchor.constraint(equalToConstant: 80),
-                label.centerYAnchor.constraint(equalTo: layoutMarginsGuide.centerYAnchor),
+                resultLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 30),
+                resultLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -30),
+                resultLabel.heightAnchor.constraint(equalToConstant: 120),
+                resultLabel.centerYAnchor.constraint(equalTo: layoutMarginsGuide.centerYAnchor),
                 
                 buttonStack.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 30),
                 buttonStack.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -30),
                 buttonStack.heightAnchor.constraint(equalToConstant: 50),
-                buttonStack.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10)
+                buttonStack.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 10),
+                
+                resultTitleLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 30),
+                resultTitleLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -30),
+                resultTitleLabel.heightAnchor.constraint(equalToConstant: 50),
+                resultTitleLabel.bottomAnchor.constraint(equalTo: resultLabel.topAnchor, constant: 10)
             ]
         )
     }
 
-    private func buildLabel() -> UILabel {
+    private func buildLabel(withTitle title: String, andColor color: UIColor) -> UILabel {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Parabéns!!!!"
+        label.text = title
+        label.numberOfLines = 0
         label.textAlignment = .center
-        label.backgroundColor = .brown
+        label.backgroundColor = color
         
         return label
     }
     
     func buildNewGameButton() -> UIButton {
-        let button = buildButton(withTitle: "Novo Jogo")
+        let button = buildButton(withTitle: viewModel.newGameButtonTitle)
         button.addTarget(self, action: #selector(newGameTapped), for: .touchUpInside)
         
         return button
     }
     
     func buildExitButton() -> UIButton {
-        let button = buildButton(withTitle: "Sair")
+        let button = buildButton(withTitle: viewModel.exitGameButtonTitle)
         button.addTarget(self, action: #selector(exitTapped), for: .touchUpInside)
         
         return button
