@@ -15,14 +15,15 @@ struct Questions {
     
     static var hasMoreQuestions: Bool = true
     static var result: String {
-        let factor = 100 / answers.count
+        let factor = 100.0 / Double(answers.count)
         let grouped = answers.reduce(into: [:]) { result, character in
             result[character, default: 0] += 1
         }.sorted { $0.1 > $1.1 }
                 
         var resultText = ""
         grouped.forEach { k, v in
-            resultText += "\(k) = \(v * factor)% \n"
+            let answerPercentual = String(format: "%.2f", (Double(v) * factor))
+            resultText += "\(k) = \(answerPercentual)% \n"
         }
         
         return "\(resultText.prefix(resultText.count - 2))"
@@ -49,11 +50,11 @@ struct Questions {
         Question(title: "Como você se define?",
                  answers: [
                     Answer(title: "Alguém que é capaz de qualquer coisa para conquistar seus objetivos", profile: .four),
-                    Answer(title: "Alguém que não se importa de não ser o centro das atenções", profile: .one),
-                    Answer(title: "Alguém que gosta de ajudar os outros", profile: .two),
+                    Answer(title: "Alguém que não se importa de não ser o centro das atenções", profile: .two),
+                    Answer(title: "Alguém que gosta de uma aventura", profile: .one),
                     Answer(title: "Alguém que possui muita bondade", profile: .three)
                  ].shuffled()
-                         ),
+        ),
         Question(title: "Qual sua principal característica?",
                  answers: [
                     Answer(title: "Persistência", profile: .four),
@@ -61,7 +62,6 @@ struct Questions {
                     Answer(title: "Companheirismo", profile: .two),
                     Answer(title: "Fé", profile: .three)
                  ].shuffled()
-                 
         ),
         Question(title: "Qual frase te define?",
                  answers: [
@@ -78,7 +78,7 @@ struct Questions {
 
 struct Question {
     let title: String
-    let answers: [Answer]    
+    let answers: [Answer]
     
     var one: Answer { answers[0] }
     var two: Answer { answers[1] }
