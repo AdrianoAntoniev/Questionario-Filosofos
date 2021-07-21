@@ -13,6 +13,8 @@ struct Questions {
     fileprivate static var answers: [String] = []
     fileprivate static var currentQuestionIndex: Int = 0
     
+    // TODO: Retornar um map com os dados. I.E: [Mario: 66, Peach: 30]
+    
     static var hasMoreQuestions: Bool = true
     static var result: String {
         let factor = 100.0 / Double(answers.count)
