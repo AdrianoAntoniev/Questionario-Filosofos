@@ -31,8 +31,8 @@ class ResultViewModel {
         viewData.exitGameButtonTitle
     }
     
-    var result: String {
-        viewData.result
+    var result: [String: Double] {        
+        Questions.result.reduce(into: [:]) { $0[$1.0] = $1.1 }
     }
     
     var resultLabelTitle: String {

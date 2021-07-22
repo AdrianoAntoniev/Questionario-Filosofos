@@ -12,11 +12,11 @@ import Charts
 
 class ResultView: UIView {    
     private let viewModel: ResultViewModel
-    private lazy var resultLabel = buildLabel(withTitle: viewModel.result, andColor: .brown)
-    private lazy var resultTitleLabel = buildLabel(withTitle: viewModel.resultLabelTitle, andColor: .green)
+    private lazy var resultTitleLabel = buildLabel(withTitle: viewModel.resultLabelTitle)
     private lazy var buttonStack = buildStack()
     private lazy var newGameButton = buildNewGameButton()
     private lazy var pieChart: PieChartView = buildPieChart()
+    private lazy var values = viewModel.result
     
     init(viewModel: ResultViewModel) {
         self.viewModel = viewModel
@@ -63,7 +63,7 @@ class ResultView: UIView {
         )
     }
 
-    private func buildLabel(withTitle title: String, andColor color: UIColor) -> UILabel {
+    private func buildLabel(withTitle title: String, andColor color: UIColor = .orange) -> UILabel {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = title
@@ -111,17 +111,20 @@ class ResultView: UIView {
         pieChart.chartDescription?.enabled = false
         pieChart.drawHoleEnabled = false
         pieChart.rotationAngle = 0
-        pieChart.rotationEnabled = false
+        pieChart.rotationEnabled = true
         pieChart.isUserInteractionEnabled = false
         
         var entries: [PieChartDataEntry] = []
-        entries.append(PieChartDataEntry(value: 100.0, label: "A"))
-        entries.append(PieChartDataEntry(value: 50.0, label: "B"))
+        for value in values {
+            entries.append(PieChartDataEntry(value: value.value, label: value.key))
+        }
         
-        let dataSet = PieChartDataSet(entries: entries, label: "Zoo")
+        let dataSet = PieChartDataSet(entries: entries, label: "")
+        dataSet.entryLabelColor = .white
         
         dataSet.colors = UIColor.colors
-        dataSet.drawValuesEnabled = false
+        dataSet.drawValuesEnabled = true
+        dataSet.entryLabelFont = .init(descriptor: .init(), size: 11)
         
         pieChart.data = PieChartData(dataSet: dataSet)
         
@@ -141,7 +144,7 @@ fileprivate extension UIColor {
     private static var colorThree: UIColor { .init(hex: 0x35012C) }
     
     static let colors: [UIColor] = [
-        colorOne, colorTwo, colorThree
+        .brown, .magenta, .gray, .blue
     ]
     
     

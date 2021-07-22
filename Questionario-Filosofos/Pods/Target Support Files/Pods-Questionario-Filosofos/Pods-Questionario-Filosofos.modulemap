@@ -1,0 +1,6 @@
+framework module Pods_Questionario_Filosofos {
+  umbrella header "Pods-Questionario-Filosofos-umbrella.h"
+
+  export *
+  module * { export * }
+}

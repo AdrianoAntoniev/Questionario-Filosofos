@@ -7,28 +7,25 @@
 
 import Foundation
 
+// MARK: - typealias
+
+typealias ResultValues = [(String, Double)]
+
 // MARK: - Questions
 
 struct Questions {
     fileprivate static var answers: [String] = []
     fileprivate static var currentQuestionIndex: Int = 0
     
-    // TODO: Retornar um map com os dados. I.E: [Mario: 66, Peach: 30]
-    
     static var hasMoreQuestions: Bool = true
-    static var result: String {
+    static var result: ResultValues {
         let factor = 100.0 / Double(answers.count)
         let grouped = answers.reduce(into: [:]) { result, character in
             result[character, default: 0] += 1
         }.sorted { $0.1 > $1.1 }
-                
-        var resultText = ""
-        grouped.forEach { k, v in
-            let answerPercentual = String(format: "%.2f", (Double(v) * factor))
-            resultText += "\(k) = \(answerPercentual)% \n"
-        }
+        .map { ($0, Double(String(format: "%.2f", Double($1) * factor))!) }
         
-        return "\(resultText.prefix(resultText.count - 2))"
+        return grouped
     }
     
     static func resetAnswers() {

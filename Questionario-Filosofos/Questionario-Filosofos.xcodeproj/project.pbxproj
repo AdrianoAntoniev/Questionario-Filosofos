@@ -7,25 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500A1F11F08197D2F89DBDBF /* Pods_Questionario_Filosofos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB4A738C8542089CE10DE1B /* Pods_Questionario_Filosofos.framework */; };
 		B9678B2E269B79CA0019DE24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B2D269B79CA0019DE24 /* AppDelegate.swift */; };
 		B9678B30269B79CA0019DE24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B2F269B79CA0019DE24 /* SceneDelegate.swift */; };
-		B9678B32269B79CA0019DE24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B31269B79CA0019DE24 /* ViewController.swift */; };
-		B9678B35269B79CA0019DE24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9678B33269B79CA0019DE24 /* Main.storyboard */; };
 		B9678B37269B79DA0019DE24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9678B36269B79DA0019DE24 /* Assets.xcassets */; };
 		B9678B3A269B79DA0019DE24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9678B38269B79DA0019DE24 /* LaunchScreen.storyboard */; };
 		B9678B43269B7A870019DE24 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B42269B7A870019DE24 /* Coordinator.swift */; };
+		B9678B4C269B7E250019DE24 /* StartQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B4B269B7E250019DE24 /* StartQuizViewController.swift */; };
+		B9678B4F269B7E870019DE24 /* StartQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B4E269B7E870019DE24 /* StartQuizView.swift */; };
+		B9678B52269BD1F90019DE24 /* StartQuizViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B51269BD1F90019DE24 /* StartQuizViewData.swift */; };
+		B9678B55269BD3810019DE24 /* StartQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B54269BD3810019DE24 /* StartQuizViewModel.swift */; };
+		B9678B58269D14B30019DE24 /* StartQuizCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B57269D14B30019DE24 /* StartQuizCoordinator.swift */; };
+		B9678B5C269D1E100019DE24 /* QuizCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B5B269D1E100019DE24 /* QuizCoordinator.swift */; };
+		B9678B5F269D1E780019DE24 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B5E269D1E770019DE24 /* QuizViewModel.swift */; };
+		B9678B65269D1F1B0019DE24 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B64269D1F1B0019DE24 /* QuizViewController.swift */; };
+		B9678B68269D1F9F0019DE24 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B67269D1F9F0019DE24 /* QuizView.swift */; };
+		B9678B6C26A125B60019DE24 /* ResultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B6B26A125B60019DE24 /* ResultCoordinator.swift */; };
+		B9678B6F26A128810019DE24 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B6E26A128810019DE24 /* ResultViewModel.swift */; };
+		B9678B7226A1298F0019DE24 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B7126A1298F0019DE24 /* ResultViewController.swift */; };
+		B9678B7526A12A6C0019DE24 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B7426A12A6C0019DE24 /* ResultView.swift */; };
+		B9678B7926A27E970019DE24 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9678B7826A27E970019DE24 /* Question.swift */; };
+		B975088826A3D8FD0012FA32 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975088726A3D8FD0012FA32 /* Extensions.swift */; };
+		B975088E26A658430012FA32 /* ResultViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975088D26A658430012FA32 /* ResultViewData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		209862F3D21B393F3A599DF6 /* Pods-Questionario-Filosofos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Questionario-Filosofos.release.xcconfig"; path = "Target Support Files/Pods-Questionario-Filosofos/Pods-Questionario-Filosofos.release.xcconfig"; sourceTree = "<group>"; };
+		AE91F33F839745CF77903872 /* Pods-Questionario-Filosofos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Questionario-Filosofos.debug.xcconfig"; path = "Target Support Files/Pods-Questionario-Filosofos/Pods-Questionario-Filosofos.debug.xcconfig"; sourceTree = "<group>"; };
 		B9678B2A269B79CA0019DE24 /* Questionario-Filosofos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Questionario-Filosofos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9678B2D269B79CA0019DE24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9678B2F269B79CA0019DE24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B9678B31269B79CA0019DE24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B9678B34269B79CA0019DE24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B9678B36269B79DA0019DE24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9678B39269B79DA0019DE24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9678B3B269B79DA0019DE24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9678B42269B7A870019DE24 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B9678B4B269B7E250019DE24 /* StartQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizViewController.swift; sourceTree = "<group>"; };
+		B9678B4E269B7E870019DE24 /* StartQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizView.swift; sourceTree = "<group>"; };
+		B9678B51269BD1F90019DE24 /* StartQuizViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizViewData.swift; sourceTree = "<group>"; };
+		B9678B54269BD3810019DE24 /* StartQuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizViewModel.swift; sourceTree = "<group>"; };
+		B9678B57269D14B30019DE24 /* StartQuizCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizCoordinator.swift; sourceTree = "<group>"; };
+		B9678B5B269D1E100019DE24 /* QuizCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCoordinator.swift; sourceTree = "<group>"; };
+		B9678B5E269D1E770019DE24 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
+		B9678B64269D1F1B0019DE24 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		B9678B67269D1F9F0019DE24 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		B9678B6B26A125B60019DE24 /* ResultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCoordinator.swift; sourceTree = "<group>"; };
+		B9678B6E26A128810019DE24 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		B9678B7126A1298F0019DE24 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		B9678B7426A12A6C0019DE24 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		B9678B7826A27E970019DE24 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		B975088726A3D8FD0012FA32 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B975088D26A658430012FA32 /* ResultViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewData.swift; sourceTree = "<group>"; };
+		FCB4A738C8542089CE10DE1B /* Pods_Questionario_Filosofos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Questionario_Filosofos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +65,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				500A1F11F08197D2F89DBDBF /* Pods_Questionario_Filosofos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B59B35220C7355BF9877BDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE91F33F839745CF77903872 /* Pods-Questionario-Filosofos.debug.xcconfig */,
+				209862F3D21B393F3A599DF6 /* Pods-Questionario-Filosofos.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6B6F42D4C96E9CFA78511838 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCB4A738C8542089CE10DE1B /* Pods_Questionario_Filosofos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B9678B21269B79CA0019DE24 = {
 			isa = PBXGroup;
 			children = (
 				B9678B2C269B79CA0019DE24 /* Questionario-Filosofos */,
 				B9678B2B269B79CA0019DE24 /* Products */,
+				6B59B35220C7355BF9877BDE /* Pods */,
+				6B6F42D4C96E9CFA78511838 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +111,78 @@
 		B9678B2C269B79CA0019DE24 /* Questionario-Filosofos */ = {
 			isa = PBXGroup;
 			children = (
-				B9678B2D269B79CA0019DE24 /* AppDelegate.swift */,
-				B9678B2F269B79CA0019DE24 /* SceneDelegate.swift */,
-				B9678B31269B79CA0019DE24 /* ViewController.swift */,
-				B9678B33269B79CA0019DE24 /* Main.storyboard */,
+				B9678B42269B7A870019DE24 /* Coordinator.swift */,
+				B9678B45269B7DA70019DE24 /* Scenes */,
+				B9678B46269B7DBD0019DE24 /* Supporting Files */,
 				B9678B36269B79DA0019DE24 /* Assets.xcassets */,
 				B9678B38269B79DA0019DE24 /* LaunchScreen.storyboard */,
 				B9678B3B269B79DA0019DE24 /* Info.plist */,
-				B9678B42269B7A870019DE24 /* Coordinator.swift */,
 			);
 			path = "Questionario-Filosofos";
+			sourceTree = "<group>";
+		};
+		B9678B45269B7DA70019DE24 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B9678B6A26A125430019DE24 /* Result */,
+				B9678B5A269D1DED0019DE24 /* Quiz */,
+				B9678B4A269B7E050019DE24 /* StartQuiz */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B9678B46269B7DBD0019DE24 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9678B2D269B79CA0019DE24 /* AppDelegate.swift */,
+				B9678B2F269B79CA0019DE24 /* SceneDelegate.swift */,
+				B975088726A3D8FD0012FA32 /* Extensions.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B9678B4A269B7E050019DE24 /* StartQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				B9678B4B269B7E250019DE24 /* StartQuizViewController.swift */,
+				B9678B4E269B7E870019DE24 /* StartQuizView.swift */,
+				B9678B51269BD1F90019DE24 /* StartQuizViewData.swift */,
+				B9678B54269BD3810019DE24 /* StartQuizViewModel.swift */,
+				B9678B57269D14B30019DE24 /* StartQuizCoordinator.swift */,
+			);
+			path = StartQuiz;
+			sourceTree = "<group>";
+		};
+		B9678B5A269D1DED0019DE24 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				B9678B7726A27E840019DE24 /* Model */,
+				B9678B5B269D1E100019DE24 /* QuizCoordinator.swift */,
+				B9678B5E269D1E770019DE24 /* QuizViewModel.swift */,
+				B9678B64269D1F1B0019DE24 /* QuizViewController.swift */,
+				B9678B67269D1F9F0019DE24 /* QuizView.swift */,
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
+		B9678B6A26A125430019DE24 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				B9678B6B26A125B60019DE24 /* ResultCoordinator.swift */,
+				B9678B6E26A128810019DE24 /* ResultViewModel.swift */,
+				B9678B7126A1298F0019DE24 /* ResultViewController.swift */,
+				B9678B7426A12A6C0019DE24 /* ResultView.swift */,
+				B975088D26A658430012FA32 /* ResultViewData.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		B9678B7726A27E840019DE24 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B9678B7826A27E970019DE24 /* Question.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9678B3E269B79DA0019DE24 /* Build configuration list for PBXNativeTarget "Questionario-Filosofos" */;
 			buildPhases = (
+				1C5518E829AEAEE4490D667D /* [CP] Check Pods Manifest.lock */,
 				B9678B26269B79CA0019DE24 /* Sources */,
 				B9678B27269B79CA0019DE24 /* Frameworks */,
 				B9678B28269B79CA0019DE24 /* Resources */,
+				5B0E73858745EF4ED07BFB38 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,20 +246,76 @@
 			files = (
 				B9678B3A269B79DA0019DE24 /* LaunchScreen.storyboard in Resources */,
 				B9678B37269B79DA0019DE24 /* Assets.xcassets in Resources */,
-				B9678B35269B79CA0019DE24 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C5518E829AEAEE4490D667D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Questionario-Filosofos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B0E73858745EF4ED07BFB38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Questionario-Filosofos/Pods-Questionario-Filosofos-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Questionario-Filosofos/Pods-Questionario-Filosofos-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Questionario-Filosofos/Pods-Questionario-Filosofos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B9678B26269B79CA0019DE24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9678B58269D14B30019DE24 /* StartQuizCoordinator.swift in Sources */,
+				B9678B6F26A128810019DE24 /* ResultViewModel.swift in Sources */,
 				B9678B43269B7A870019DE24 /* Coordinator.swift in Sources */,
-				B9678B32269B79CA0019DE24 /* ViewController.swift in Sources */,
+				B9678B7926A27E970019DE24 /* Question.swift in Sources */,
+				B9678B7226A1298F0019DE24 /* ResultViewController.swift in Sources */,
+				B9678B4F269B7E870019DE24 /* StartQuizView.swift in Sources */,
+				B9678B65269D1F1B0019DE24 /* QuizViewController.swift in Sources */,
+				B975088826A3D8FD0012FA32 /* Extensions.swift in Sources */,
+				B9678B68269D1F9F0019DE24 /* QuizView.swift in Sources */,
+				B9678B5F269D1E780019DE24 /* QuizViewModel.swift in Sources */,
 				B9678B2E269B79CA0019DE24 /* AppDelegate.swift in Sources */,
+				B9678B55269BD3810019DE24 /* StartQuizViewModel.swift in Sources */,
+				B9678B4C269B7E250019DE24 /* StartQuizViewController.swift in Sources */,
+				B9678B52269BD1F90019DE24 /* StartQuizViewData.swift in Sources */,
+				B975088E26A658430012FA32 /* ResultViewData.swift in Sources */,
+				B9678B7526A12A6C0019DE24 /* ResultView.swift in Sources */,
+				B9678B6C26A125B60019DE24 /* ResultCoordinator.swift in Sources */,
+				B9678B5C269D1E100019DE24 /* QuizCoordinator.swift in Sources */,
 				B9678B30269B79CA0019DE24 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,14 +323,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B9678B33269B79CA0019DE24 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B9678B34269B79CA0019DE24 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B9678B38269B79DA0019DE24 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,6 +452,7 @@
 		};
 		B9678B3F269B79DA0019DE24 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE91F33F839745CF77903872 /* Pods-Questionario-Filosofos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -306,6 +472,7 @@
 		};
 		B9678B40269B79DA0019DE24 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 209862F3D21B393F3A599DF6 /* Pods-Questionario-Filosofos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

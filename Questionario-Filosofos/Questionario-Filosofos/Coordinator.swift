@@ -41,7 +41,6 @@ class MainCoordinator: Coordinator {
     }
     
     func startQuiz() {
-        Questions.resetAnswers()
         let coordinator = QuizCoordinator(
             navigationController: navigationController,
             delegate: self
@@ -83,6 +82,7 @@ extension MainCoordinator: QuizCoordinatorDelegate {
 
 extension MainCoordinator: ResultCoordinatorDelegate {
     func newGame() {
+        Questions.resetAnswers()
         self.startQuiz()
     }        
 }

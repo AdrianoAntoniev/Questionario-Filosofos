@@ -8,13 +8,11 @@
 import Foundation
 
 struct ResultViewData {
-    let result: String
     let newGameButtonTitle: String
     let exitGameButtonTitle: String
     let resultLabelTitle: String
     
-    init() {
-        self.result = Questions.result
+    init() {        
         self.newGameButtonTitle = "Novo jogo"
         self.exitGameButtonTitle = "Sair"
         self.resultLabelTitle = "Resultado:"
